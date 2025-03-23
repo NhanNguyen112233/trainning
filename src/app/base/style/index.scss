@@ -1,0 +1,39 @@
+@use './typograhpy.scss';
+@use './palletes.scss';
+@use './reset.scss';
+@use './utils.scss' as *;
+
+
+html * {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+}
+
+h1 {
+    font-size: toRem(48px);
+}
+
+h2 {
+    font-size: toRem(36px);
+}
+
+h3 {
+    font-size: toRem(24px);
+}
+
+h4 {
+    font-size: toRem(20px);
+}
+
+h5 {
+    font-size: toRem(16px);
+}
+
+h6 {
+    font-size: toRem(14px);
+}
+

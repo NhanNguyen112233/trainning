@@ -1,0 +1,50 @@
+@use '../../../base/style/utils.scss' as *;
+
+.btn{
+    background: none;
+    border:none ;
+    border-radius: toRem(24px);
+    padding:toRem(16px) toRem(32px);
+    box-sizing: border-box;
+    user-select: none;
+    transition: all 0.2s ease;
+
+    &:hover{
+        cursor: pointer;
+    }
+
+    &:disabled,
+    &-disabled {
+      background-color: var(--disabled);
+      color: var(--white);
+      pointer-events: none !important;
+      cursor: not-allowed;
+    }
+
+    &-primary{
+        background-color: var(--orange);
+        color: var(--white);
+
+        &:active{
+            background-color: var(--orange-active);
+        }
+    }
+
+    &-secondary{
+        background-color: var(--skybound-blue);
+        color: var(--white);
+
+        &:active{
+            background-color: var(--skybound-active);
+        }
+    }
+
+    &-tertiary{
+        background-color: var(--deep-lagoon);
+        color: var(--white);
+
+        &:active{
+            background-color: var(--deep-lagoon-active);
+        }
+    }
+}

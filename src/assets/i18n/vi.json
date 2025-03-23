@@ -1,0 +1,9 @@
+{
+  "common": {
+    "welcome": "Xin chào",
+    "buttons": {
+      "save": "Save",
+      "cancel": "Cancel"
+    }
+  }
+}

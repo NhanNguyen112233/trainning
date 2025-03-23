@@ -1,0 +1,9 @@
+<button
+type="button"
+[ngClass]="class ? 'btn ' + class : 'btn btn-' + type"
+[attr.style]="style"
+[disabled]="isDisabled"
+(click)="onClick.emit()"
+>
+    <ng-content></ng-content>
+</button>

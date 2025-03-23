@@ -3,10 +3,18 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "prestart": "npm run svg",
+    "prebuild": "npm run svg",
+    "svg": "svg-generator",
+    "start": "npm run prestart &&  ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "jest --coverage",
+    "npx-test":"npx jest --coverage",
+    "test-viewrp":"start ./coverage/index.html",
+    "show-coverage":"npm run npx-test && npm run test-viewrp",
+    "generate": "madge --image graph.svg . --extensions ts --exclude '.*\\.spec\\.ts$'",
+    "madge": "node ./madge.js"
   },
   "private": true,
   "dependencies": {
@@ -18,21 +26,51 @@
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
+    "@ngneat/svg-icon": "^7.1.6",
+    "@ngrx/component-store": "^18.1.1",
+    "@ngrx/store": "^18.1.1",
+    "@ngx-translate/core": "^16.0.4",
+    "@ngx-translate/http-loader": "^16.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
+    "@angular-builders/jest": "^18.0.0",
     "@angular-devkit/build-angular": "^18.2.1",
     "@angular/cli": "^18.2.1",
     "@angular/compiler-cli": "^18.2.0",
+    "@ngneat/svg-generator": "^7.0.3",
     "@types/jasmine": "~5.1.0",
+    "@types/jest": "^29.5.14",
+    "chokidar": "^3.5.3",
     "jasmine-core": "~5.2.0",
+    "jest": "^29.7.0",
+    "jest-preset-angular": "^14.0.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "madge": "^5.0.0",
+    "ng-mocks": "^14.13.4",
+    "ts-jest": "^29.2.6",
     "typescript": "~5.5.2"
+  },
+  "svgGenerator": {
+    "outputPath": "./src/app/shared/ui/icon/svg",
+    "srcPath": "./src/assets/svg",
+    "svgoConfig": {
+      "plugins": [
+        "removeDimensions",
+        "cleanupAttrs",
+        {
+          "name": "convertColors",
+          "params": {
+            "currentColor": true
+          }
+        }
+      ]
+    }
   }
 }

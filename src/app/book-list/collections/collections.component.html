@@ -1,0 +1,8 @@
+@for (item of collections; track $index) {
+    <div>
+        {{item.volumeInfo.title}} by {{item.volumeInfo.authors}}
+        &nbsp;<span>
+            <button (click)="remove.emit(item.id)">REMOVE</button>
+        </span>
+    </div>
+}

@@ -1,0 +1,8 @@
+@for (item of booksList; track $index) {
+    <div>
+        {{item.volumeInfo.title}} by {{item.volumeInfo.authors}}
+        &nbsp;<span>
+            <button (click)="add.emit(item.id)">Addbook</button>
+        </span>
+    </div>
+}

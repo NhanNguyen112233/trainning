@@ -1,0 +1,5 @@
+@use './base/style/utils.scss' as *;
+
+.title{
+    font-size: toRem(90px);
+}

@@ -1,0 +1,9 @@
+@use "sass:math";
+
+// Define the function in the global namespace
+@function toRem($px-value) {
+  $base-font-size: 16px;
+  @return math.div($px-value, $base-font-size) * 1rem;
+}
+
+

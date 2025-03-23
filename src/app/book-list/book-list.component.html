@@ -1,0 +1,9 @@
+<app-list
+[booksList]="(books$ | async) !"
+(add)="addBook($event)"
+></app-list>
+
+<app-collections
+[collections]="(collections$ | async) !"
+(remove)="removeBook($event)"
+></app-collections>
