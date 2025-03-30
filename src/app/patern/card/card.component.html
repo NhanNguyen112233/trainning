@@ -1,1 +1,18 @@
-<p>card works!</p>
+<div class="card">
+    <div class="card-description" >
+        <h4 data-testId="card-description">{{data.description}}</h4>
+    </div>
+
+    <div class="card-info flex flex-justify-space-between flex-no-wrap" >
+        <div class="card-info-about flex flex-col-direction pt-32 pb-32">
+            <h3 data-testId="card-name">{{data.name}}</h3>
+             <div data-testId="card-occupations">{{data.occupations}}</div>
+        </div>
+
+        <div class="card-info-avatar">
+            <div class="card-info-avatar-img">
+                <app-avatar data-testId="avatar-app"></app-avatar>
+            </div>
+        </div>
+    </div>
+</div>

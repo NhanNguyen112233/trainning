@@ -1,1 +1,32 @@
-<p>review works!</p>
+<div class="review-works flex flex-justify-space-between">
+    <div class="line"></div>
+    <div class="review-works-card">
+        @if (reviewInformation | async; as VM) {
+            @for (item of VM; track $index) {
+                <app-card
+                [data]="item"
+                ></app-card>
+            }
+        }
+       
+    </div>
+
+    <div class="review-works-overview">
+        <h1>
+            What our students say
+        </h1>
+
+        <p>
+            All students get access to all the videos and the videos and also the source code of the projects
+
+        </p>
+
+        <p>
+            You will also have access to a private Discord channel where you can discuss your doubts
+        </p>
+
+        <app-button>
+            Learn More
+        </app-button>
+    </div>
+</div>

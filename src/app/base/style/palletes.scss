@@ -1,13 +1,10 @@
-:root {
-    --white: #FFFFFF;
-    --disabled:#999090;
-    --orange:#DA722C;
-    --orange-active:#d86315;
-    --skybound-blue: #057ADA;
-    --skybound-active: #43a1ed;
-    --shadow-ocean:#070917;
-    --crystal-sky:#E8F7FB;
-    --deep-lagoon:#023047;
-    --deep-lagoon-active:#033f5e;
+@use "sass:map";
+@use "sass:string";
+@use "./variables.scss" as *;
 
+:root {
+  @each $name, $value in $colors {
+    // Use hyphenated variable name format for CSS custom properties
+    --#{"" + $name}: #{$value};
+  }
 }

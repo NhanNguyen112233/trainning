@@ -4,9 +4,11 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-import { provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, Route, Routes } from '@angular/router';
+import { APP_INITIALIZER, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter, Routes } from '@angular/router';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MockService } from '@shared/mock/mock.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 function provideTranslation() {
   return (
@@ -15,24 +17,31 @@ function provideTranslation() {
       loader: {
         provide: TranslateLoader,
         useFactory: (httpClient: HttpClient) => {
-          console.log('http', httpClient);
-
           return new TranslateHttpLoader(httpClient);
         },
         deps: [HttpClient],
       },
-    })?.providers ?? []
+    }).providers || []
+  );
+}
+
+function provideMockDb() {
+  return (
+    HttpClientInMemoryWebApiModule.forRoot(MockService, { delay: 500 })
+      .providers || []
   );
 }
 
 export interface CoreOptions {
   routes: Routes;
 }
+
 export function provideCore(options: CoreOptions) {
   return [
     provideRouter(options.routes),
-    provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi()),
     ...provideTranslation(),
+    ...provideMockDb(),
     provideZoneChangeDetection({ eventCoalescing: true }),
   ];
 }

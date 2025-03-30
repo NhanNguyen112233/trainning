@@ -7,7 +7,9 @@ import { CourseComponent } from './course/course.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeRoutingModule } from './home.routing.module';
 import { SharedModule } from '@shared/ui/shared.module';
-import { FooterComponent } from '../../patern/footer/footer.component';
+import { CommonModule } from '@angular/common';
+import { FooterComponent } from '@pattern/footer/footer.component';
+import { CardComponent } from '@pattern/card/card.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,13 @@ import { FooterComponent } from '../../patern/footer/footer.component';
     CourseComponent,
     ContactComponent,
   ],
-  imports: [HomeRoutingModule, SharedModule, HeaderComponent, FooterComponent],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    SharedModule,
+    HeaderComponent,
+    FooterComponent,
+    CardComponent,
+  ],
 })
 export class HomeModule {}

@@ -2,10 +2,13 @@
 @use './palletes.scss';
 @use './reset.scss';
 @use './utils.scss' as *;
+@use './variables.scss' as *;
 
-
-html * {
+body {
     font-family: 'Poppins', sans-serif;
+    font-size: $base-font-size;
+    color:var(--deep-lagoon);
+    font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,7 +29,7 @@ h3 {
 }
 
 h4 {
-    font-size: toRem(20px);
+    font-size: toRem(18px);
 }
 
 h5 {
@@ -37,3 +40,120 @@ h6 {
     font-size: toRem(14px);
 }
 
+@each $key,$value in $spacing{
+    $toRemValue:toRem($value);
+    //margin
+    .mr-#{$key}{
+      margin-right: $toRemValue;
+    }
+  
+    .ml-#{$key}{
+      margin-left:$toRemValue;
+    }
+  
+    .mt-#{$key}{
+      margin-top:$toRemValue;
+    }
+  
+    .mb-#{$key}{
+      margin-bottom:$toRemValue;
+    }
+  
+    .mx-#{$key}{
+      margin-top: $toRemValue;
+      margin-bottom: $toRemValue;
+    }
+  
+    .my-#{$key}{
+      margin-right:$toRemValue;
+      margin-left: $toRemValue;
+    }
+  
+    .m-center {
+      margin:0 auto;
+    }
+  
+    //padding
+    .pr-#{$key}{
+      padding-right: $toRemValue;
+    }
+  
+    .pl-#{$key}{
+      padding-left:$toRemValue;
+    }
+  
+    .pt-#{$key}{
+      padding-top:$toRemValue;
+    }
+  
+    .pb-#{$key}{
+      padding-bottom:$toRemValue;
+    }
+  
+    .px-#{$key}{
+      padding-top: $toRemValue;
+      padding-bottom: $toRemValue;
+    }
+  
+    .py-#{$key}{
+      padding-right:$toRemValue;
+      padding-left: $toRemValue;
+    }
+  }
+  
+  
+  
+  //flex
+  .flex{
+   display: flex; 
+  }
+  
+  .flex-inline{
+    display: inline-flex;
+  }
+  
+  .flex-col-direction {
+    flex-direction: column;
+  }
+  
+  .flex-row-direction {
+    flex-direction: row;
+  }
+  
+  .flex-col-direction-reverse{
+    flex-direction: column-reverse;
+  }
+  
+  .flex-row-direction-reverse{
+    flex-direction: row-reverse;
+  }
+  
+  .flex-shrink{
+    flex-shrink: 1;
+  }
+  
+  .flex-no-shrink {
+    flex-shrink: 0;
+  }
+  
+  .flex-justify-center{
+    justify-content: center;
+  }
+  
+  .flex-justify-space-between{
+    justify-content: space-between;
+  }
+  
+  .flex-wrap{
+    flex-wrap: wrap;
+  }
+  
+  .flex-no-wrap{
+    flex-wrap: nowrap;
+  }
+  
+  .flex-center{
+    @extend .flex;
+    justify-content: center;
+    align-items: center;
+  }
