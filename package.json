@@ -14,7 +14,8 @@
     "test-viewrp": "start ./coverage/index.html",
     "show-coverage": "npm run npx-test && npm run test-viewrp",
     "generate": "madge --image graph.svg . --extensions ts --exclude '.*\\.spec\\.ts$'",
-    "madge": "node ./madge.js"
+    "madge": "node ./madge.js",
+    "ls":"ng build --configuration production && npx http-server -p 8080 ./dist/ngrx/browser"
   },
   "private": true,
   "dependencies": {

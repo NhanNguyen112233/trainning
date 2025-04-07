@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ReviewStore } from '@shared/store/review.store';
 
 @Component({
   selector: 'app-home',
@@ -6,4 +7,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+  constructor(private reviewStore: ReviewStore) {}
+
+  ngOnInit(): void {
+    console.log('call store');
+
+    this.reviewStore.getReviews();
+  }
+}

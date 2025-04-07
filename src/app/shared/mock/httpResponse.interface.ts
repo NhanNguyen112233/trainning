@@ -4,3 +4,8 @@ export interface ICardDataResponse {
   avatar: string;
   occupations: string;
 }
+
+export interface IReviewOfStudentResponse {
+  title: string;
+  descriptions: string[];
+}

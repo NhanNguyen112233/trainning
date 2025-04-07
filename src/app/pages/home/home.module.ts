@@ -10,6 +10,7 @@ import { SharedModule } from '@shared/ui/shared.module';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from '@pattern/footer/footer.component';
 import { CardComponent } from '@pattern/card/card.component';
+import { ReviewStore } from '@shared/store/review.store';
 
 @NgModule({
   declarations: [
@@ -27,5 +28,6 @@ import { CardComponent } from '@pattern/card/card.component';
     FooterComponent,
     CardComponent,
   ],
+  providers: [ReviewStore],
 })
 export class HomeModule {}

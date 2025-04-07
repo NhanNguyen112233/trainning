@@ -19,6 +19,8 @@
     &-info {
         padding:0 toRem(32px) toRem(5px);
         box-sizing: border-box;
+        background-color: var(--white);
+
         &-avatar{
             position: relative;
             min-width: toRem(120px);
@@ -28,7 +30,7 @@
             }
         }
 
-        &-about{
+        &-about {
             box-sizing: border-box;
             gap:toRem(8px);
 

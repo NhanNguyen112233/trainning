@@ -1,4 +1,24 @@
 @use "../../../base/style/utils.scss" as *;
+@use "../../../base/style/variables.scss" as *;
+
+
 .review-works{
     gap:toRem(10px);
+    position: relative;
+    padding-top:toRem(50px);
+
+    &-card{
+        z-index: map-get($z-index , top-level );
+    }
+}
+
+.line{
+    position: absolute;
+    width: toRem(28px);
+    height: toRem(546px);
+    left: toRem(100px);
+    top: 0;
+    z-index: map-get($z-index , behind );
+    background: var(--deep-lagoon);
+    border-radius: toRem(24px);
 }

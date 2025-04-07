@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { ICardDataResponse } from './httpResponse.interface';
+import {
+  ICardDataResponse,
+  IReviewOfStudentResponse,
+} from './httpResponse.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +14,20 @@ export class MockService implements InMemoryDbService {
       { id: 1, name: 'John Doe' },
       { id: 2, name: 'Jane Smith' },
     ];
-    return { users, cards: this.cardDb() };
+    return { users, cards: this.cardDb(), studentReview: this.studentReview() };
   }
 
   constructor() {}
+
+  private studentReview(): IReviewOfStudentResponse {
+    return {
+      title: 'What our students say',
+      descriptions: [
+        'All students get access to all the videos and the videos and also the source code of the projects',
+        'You will also have access to a private Discord channel where you can discuss your doubts',
+      ],
+    };
+  }
 
   private cardDb(): ICardDataResponse[] {
     return [
