@@ -1,17 +1,56 @@
 <div class="card">
     <div class="card-description" >
-        <h4 data-testId="card-description">{{data.description}}</h4>
+        @if(!onLoadData){
+        <h4 data-testId="card-description">
+            {{data.description}}
+        </h4>
+        }
     </div>
 
     <div class="card-info flex flex-justify-space-between flex-no-wrap" >
         <div class="card-info-about flex flex-col-direction pt-32 pb-32">
-            <h3 data-testId="card-name">{{data.name}}</h3>
-             <div data-testId="card-occupations">{{data.occupations}}</div>
+            <h3 data-testId="card-name">
+                @if(onLoadData){
+                    <app-skeleton
+                        [height]="20"
+                        borderRadius="3px"
+                        data-testId="card-name-skeleton"
+                    >
+                    </app-skeleton>
+                }
+                @else {
+                    {{data.name}}
+                }
+            </h3>
+
+            <div data-testId="card-occupations">
+                @if(onLoadData){
+                    <app-skeleton
+                        [height]="20"
+                        borderRadius="3px"
+                        data-testId="card-occupations-skeleton"
+                    >
+                    </app-skeleton>
+                }
+                @else{
+                    {{data.occupations}}
+                }
+            </div>
         </div>
 
         <div class="card-info-avatar">
             <div class="card-info-avatar-img">
-                <app-avatar data-testId="avatar-app"></app-avatar>
+                @if(onLoadData){
+                    <app-skeleton
+                        [shape]="'circle'"
+                        [diameter]="120"
+                        data-testId="avatar-app-skeleton"
+                    >
+                    </app-skeleton>
+                }
+                @else{
+                    <app-avatar data-testId="avatar-app"></app-avatar>
+                }
             </div>
         </div>
     </div>

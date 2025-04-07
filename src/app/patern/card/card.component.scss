@@ -1,13 +1,16 @@
 @use '../.././base/style/utils.scss' as *;
+@use '../.././base/style/variables.scss' as *;
+
 .card{
     min-width: toRem(442px);
     box-shadow: 0px 9px 36px rgba(0, 0, 0, 0.2);
     border-radius: toRem(24px);
     overflow: hidden;
-
-
+    z-index: map-get($z-index, top-level );
+    position: relative;
     &-description{
         color:var(--white);
+        min-height: toRem(72px);
         border-radius:toRem(24px);
         line-height: 150%;
         width: 100%;
@@ -24,6 +27,7 @@
         &-avatar{
             position: relative;
             min-width: toRem(120px);
+            flex-basis: 10%;
             &-img{
                 position: absolute;
                 top: toRem(-12px);
@@ -31,7 +35,9 @@
         }
 
         &-about {
+            flex-basis: 80%;
             box-sizing: border-box;
+            // min-height: toRem(50px);
             gap:toRem(8px);
 
             &>div{

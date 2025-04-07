@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AvatarComponent } from './avatar.component';
 import { By } from '@angular/platform-browser';
-import { runOnPushChangeDetection } from 'src/app/base/utils/test-helper';
+import { Utils } from 'src/app/base/utils/utils-selector';
 
 describe('AvatarComponent', () => {
   let component: AvatarComponent;
@@ -45,7 +45,7 @@ describe('AvatarComponent', () => {
     const avtContainer = fixture.debugElement.query(
       By.css('[data-testId="avt-test-id"]')
     ).nativeElement as HTMLDivElement;
-    await runOnPushChangeDetection(fixture);
+    await Utils.runOnPushChangeDetection(fixture);
     expect(avtContainer.style.width).toBe('120px');
     expect(avtContainer.style.height).toBe('120px');
   });

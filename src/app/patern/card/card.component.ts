@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { AvatarComponent } from '../../shared/ui/avatar/avatar.component';
 import { ICardData } from './card.type';
+import { SkeletonComponent } from '@shared/ui/skeleton/skeleton.component';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [AvatarComponent],
+  imports: [AvatarComponent, SkeletonComponent],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,4 +18,6 @@ export class CardComponent {
     name: '',
     occupations: '',
   };
+
+  @Input() onLoadData: boolean = false;
 }

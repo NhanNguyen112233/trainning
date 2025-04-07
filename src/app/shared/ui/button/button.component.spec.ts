@@ -1,8 +1,8 @@
+import { Utils } from './../../../base/utils/utils-selector';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ButtonComponent } from './button.component';
 import { By } from '@angular/platform-browser';
-import { runOnPushChangeDetection } from 'src/app/base/utils/test-helper';
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;
@@ -25,7 +25,7 @@ describe('ButtonComponent', () => {
   //should give a correct type
   it('should give correct class', async () => {
     component.type = 'secondary';
-    await runOnPushChangeDetection(fixture);
+    await Utils.runOnPushChangeDetection(fixture);
 
     const button = fixture.debugElement.query(By.css('button')).nativeElement;
     expect(button.className).toBe('btn btn-secondary');
@@ -34,7 +34,7 @@ describe('ButtonComponent', () => {
   it('should give correct style', async () => {
     component.style = 'color:red';
     const button = fixture.debugElement.query(By.css('button')).nativeElement;
-    await runOnPushChangeDetection(fixture);
+    await Utils.runOnPushChangeDetection(fixture);
     expect(button.style.color).toBe('red');
   });
 
@@ -49,7 +49,7 @@ describe('ButtonComponent', () => {
   it('should have correct class', async () => {
     const button = fixture.debugElement.query(By.css('button')).nativeElement;
     component.class = 'custom-class';
-    await runOnPushChangeDetection(fixture);
+    await Utils.runOnPushChangeDetection(fixture);
     expect(button.className).toBe('btn custom-class');
   });
   //should have been disabled
@@ -57,7 +57,7 @@ describe('ButtonComponent', () => {
     const button = fixture.debugElement.query(By.css('button')).nativeElement;
 
     component.isDisabled = true;
-    await runOnPushChangeDetection(fixture);
+    await Utils.runOnPushChangeDetection(fixture);
 
     expect(button.disabled).toBe(true);
   });

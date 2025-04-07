@@ -1,0 +1,40 @@
+@use '../../../base/style/variables.scss' as *;
+
+.skeleton{
+    background-color: var(--light-blue-gray);
+    position: relative;
+    z-index: map-get($z-index, second-level);
+    overflow: hidden;
+
+    &::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: map-get($z-index, top-level );
+        height: 100%;
+        animation: skeleton-animation 1.2s infinite;
+        transform: translateX(-100%);
+        background:linear-gradient(90deg , rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4),rgba(255, 255, 255, 0));
+    }
+
+    &-animation{
+
+    }
+
+    &-shape{
+        &-circle{
+            border-radius: 50%;
+        }
+    }
+}
+
+@keyframes skeleton-animation {
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translate(100%);
+    }
+}

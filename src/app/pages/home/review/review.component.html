@@ -1,31 +1,72 @@
 <div class="review-works flex flex-justify-space-between">
-    <div class="line"></div>
+    @if(reviewLoading |async; as VMLOADING){
+        <div class="review-works-card">
+            <div class="line"></div>
 
-    <div class="review-works-card">
-        @if (cardReview | async; as VM) {
-            @for (item of VM; track $index) {
-                <div class="mb-32">
-                    <app-card
-                        [data]="item"
-                    ></app-card>
-                </div>
-               
-            }
-        }
-    </div>
-
-    @if(studentReview | async; as VM){
+                @if(!VMLOADING.isCardLoadingStatusCompleted){
+                    @for (item of defaultSkeleton; track $index) {
+                        <div class="mb-32 review-works-card-item" [ngClass]="{'review-works-card__space-left': $index === 1}">
+                            <app-card
+                                [data]="item"
+                                [onLoadData]="true"
+                            ></app-card>
+                        </div>
+                    }
+                }
+                @else {
+                    @if (cardReview | async; as VM) {
+                        @for (item of VM; track $index) {
+                            <div class="mb-32 review-works-card-item" [ngClass]="{'review-works-card__space-left': $index === 1}">
+                                <app-card
+                                    [data]="item"
+                                ></app-card>
+                            </div>
+                        
+                        }
+                    }
+                }
+        </div>
+    
         <div class="review-works-overview">
-            <h1>{{VM.title}}</h1>
-
-            @for (des of VM.descriptions; track $index) {
-                <p>{{des}}</p>
+            @if (!VMLOADING.isStudentLoadingReviewCompleted) {
+                <h1>
+                    <app-skeleton
+                    [height]="25"
+                    borderRadius="3px"
+                    >
+                    </app-skeleton>
+                </h1>
+                
+                @for (item of [1,2,3]; track $index) {
+                    <p>
+                        <app-skeleton
+                        [height]="25"
+                        borderRadius="3px"
+                    >
+                    </app-skeleton>
+                    </p>
+                }
+                &nbsp;
+                &nbsp;
+                <app-button>
+                    Learn More
+                </app-button>
+            }
+            @else {
+                @if(studentReview | async; as VM){
+                    <h1 class="mb-14">{{VM.title}}</h1>
+                    <div class="mb-14">
+                        @for (des of VM.descriptions; track $index) {
+                            <p>{{des}}</p>
+                        }
+                    </div>
+                    <app-button>
+                        Learn More
+                    </app-button>
+                }
             }
 
-            <app-button>
-                Learn More
-            </app-button>
+            
         </div>
     }
-    
 </div>

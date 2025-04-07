@@ -3,7 +3,7 @@
 @use './reset.scss';
 @use './utils.scss' as *;
 @use './variables.scss' as *;
-
+@use "sass:map";
 body {
     font-family: 'Poppins', sans-serif;
     font-size: $base-font-size;
@@ -156,4 +156,23 @@ h6 {
     @extend .flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .page-container {
+    margin:0 auto;
+    border:1px solid red;
+    @include mq(desktop,min-width){
+      max-width: map.get($media,desktop);
+    }
+
+    @include mq(tablet){
+      max-width: map.get($media,tablet);
+
+    }
+
+    @include mq(mobile){
+      max-width: map.get($media,mobile);
+    }
+
+    
   }

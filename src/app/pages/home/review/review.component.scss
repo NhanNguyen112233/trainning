@@ -3,13 +3,33 @@
 
 
 .review-works{
-    gap:toRem(10px);
-    position: relative;
+    gap:toRem(192px);
     padding-top:toRem(50px);
+    @include mq(tablet){
+        flex-wrap: wrap-reverse;
+    }
 
     &-card{
+        position: relative;
         z-index: map-get($z-index , top-level );
+        flex-basis: 50%;
+
+        &-item{
+            max-width: toRem(442px);
+        }
+
+        &__space-left{
+            margin-left:toRem(30px);
+        }
     }
+
+    &-overview{
+        flex-basis: 50%;
+        p{
+            line-height: 200%;
+        }
+    }
+    
 }
 
 .line{
@@ -17,8 +37,9 @@
     width: toRem(28px);
     height: toRem(546px);
     left: toRem(100px);
-    top: 0;
+    top: toRem(-56px);
     z-index: map-get($z-index , behind );
     background: var(--deep-lagoon);
     border-radius: toRem(24px);
 }
+

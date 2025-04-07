@@ -4,7 +4,7 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-import { APP_INITIALIZER, provideZoneChangeDetection } from '@angular/core';
+import { provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, Routes } from '@angular/router';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MockService } from '@shared/mock/mock.service';

@@ -7,7 +7,10 @@ module.exports = {
   coverageReporters: ['html'],
   coverageDirectory: 'coverage',
   moduleNameMapper: {
-    '^src/(.*)$': '<rootDir>/src/$1'
+    '^src/(.*)$': '<rootDir>/src/$1',
+    '^@shared/(.*)$': '<rootDir>/src/app/shared/$1',
+    '^@pattern/(.*)$': '<rootDir>/src/app/patern/$1',
+    '^@app/svg/(.*)$': '<rootDir>/src/assets/svg/$1'
   },
   testEnvironment: 'jsdom'
 };
