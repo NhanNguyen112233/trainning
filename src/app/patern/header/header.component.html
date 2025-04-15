@@ -1,3 +1,16 @@
-<app-mobile-menu></app-mobile-menu>
-
-<app-desktop-tablet-menu></app-desktop-tablet-menu>
+<div class="header page-container-padding">
+    @if(deviceScreen | async; as VM){
+        @if (VM === 'MOBILE') {
+            <div class="pt-24">
+            <app-mobile-menu></app-mobile-menu>
+            </div>
+        }
+        @else {
+            <div class="pt-20">
+                <app-desktop-tablet-menu
+                    [menus]="menus"
+                ></app-desktop-tablet-menu>
+            </div>
+        }
+    }
+</div>

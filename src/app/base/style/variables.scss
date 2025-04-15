@@ -1,6 +1,12 @@
 $base-font-size:16px;
 
-$media:(
+$media-breakpoints:(
+    desktop:64em,
+    tablet:63.9375em,
+    mobile:47.9375em,
+);
+
+$container-width:(
     desktop:1366px,
     tablet:854px,
     mobile:414px,
@@ -27,7 +33,12 @@ $spacing:(
 44:44px,
 52:52px,
 80:80px,
-100:100px
+100:100px,
+120:120px,
+140:140px,
+200:200px,
+250:250px,
+280:280px,
 );
 
 $colors: (

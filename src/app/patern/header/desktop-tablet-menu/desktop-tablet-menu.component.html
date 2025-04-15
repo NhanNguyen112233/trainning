@@ -1,1 +1,23 @@
-<p>desktop-tablet-menu works!</p>
+<div class="flex flex-justify-space-between">
+    <app-icon
+    key="logo" fontSize="40px"
+    color="white"
+    ></app-icon>
+
+    <div class="menu flex flex-align-center flex-justify-space-between">
+        @for (item of menus; track $index) {
+                @if (item.type==='text') {
+                    <a [href]="item.href">
+                   
+                        {{item.title}}
+                      
+                    </a>
+                }
+
+                @if (item.type==='button') {
+                    <app-button type="tertiary">{{item.title}}</app-button>
+                }
+                
+        }
+    </div>
+</div>

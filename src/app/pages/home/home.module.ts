@@ -6,11 +6,13 @@ import { GeneralIntroductionComponent } from './general-introduction/general-int
 import { CourseComponent } from './course/course.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeRoutingModule } from './home.routing.module';
+import { IntroductionBubblesComponent } from './general-introduction/components/introduction-bubbles/introduction-bubbles.component';
 import { SharedModule } from '@shared/ui/shared.module';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from '@pattern/footer/footer.component';
 import { CardComponent } from '@pattern/card/card.component';
 import { ReviewStore } from '@shared/store/review.store';
+import { LazyLoadDirectiveDirective } from '@shared/directives/lazy-load-directive.directive';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { ReviewStore } from '@shared/store/review.store';
     GeneralIntroductionComponent,
     CourseComponent,
     ContactComponent,
+    IntroductionBubblesComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +30,7 @@ import { ReviewStore } from '@shared/store/review.store';
     HeaderComponent,
     FooterComponent,
     CardComponent,
+    LazyLoadDirectiveDirective,
   ],
   providers: [ReviewStore],
 })

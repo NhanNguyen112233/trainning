@@ -9,6 +9,11 @@ body {
     font-size: $base-font-size;
     color:var(--deep-lagoon);
     font-weight: 400;
+
+    @include mq(mobile){
+      font-size: 14px;
+
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -152,6 +157,10 @@ h6 {
     flex-wrap: nowrap;
   }
   
+  .flex-align-center{
+    align-items:center;
+  }
+
   .flex-center{
     @extend .flex;
     justify-content: center;
@@ -160,19 +169,30 @@ h6 {
 
   .page-container {
     margin:0 auto;
-    border:1px solid red;
-    @include mq(desktop,min-width){
-      max-width: map.get($media,desktop);
+    box-sizing: border-box;
+    overflow: hidden;
+    @include mq(desktop){
+      max-width: map.get($container-width,desktop);
+      &-padding{
+        padding-left:toRem(116px);
+        padding-right: toRem(116px);
+      }
     }
 
     @include mq(tablet){
-      max-width: map.get($media,tablet);
+      max-width: map.get($container-width,tablet);
+      &-padding{
+        padding-left:toRem(60px);
+        padding-right: toRem(60px);
+      }
 
     }
 
     @include mq(mobile){
-      max-width: map.get($media,mobile);
+      max-width: map.get($container-width,mobile);
+      &-padding{
+      padding-left:toRem(32px);
+      padding-right: toRem(32px);
+      }
     }
-
-    
   }

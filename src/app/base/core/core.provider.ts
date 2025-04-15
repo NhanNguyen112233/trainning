@@ -5,10 +5,17 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, Routes } from '@angular/router';
+import {
+  PreloadAllModules,
+  provideRouter,
+  Routes,
+  withPreloading,
+} from '@angular/router';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MockService } from '@shared/mock/mock.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { provideSvgIcons } from '@ngneat/svg-icon';
+import { appIcons } from '@shared/ui/icon/icons';
 
 function provideTranslation() {
   return (
@@ -38,10 +45,11 @@ export interface CoreOptions {
 
 export function provideCore(options: CoreOptions) {
   return [
-    provideRouter(options.routes),
+    provideRouter(options.routes, withPreloading(PreloadAllModules)),
     provideHttpClient(withInterceptorsFromDi()),
     ...provideTranslation(),
     ...provideMockDb(),
     provideZoneChangeDetection({ eventCoalescing: true }),
+    provideSvgIcons([...appIcons]),
   ];
 }

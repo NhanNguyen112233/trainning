@@ -3,7 +3,7 @@
 
 
 .review-works{
-    gap:toRem(192px);
+    gap:toRem(120px);
     padding-top:toRem(50px);
     @include mq(tablet){
         flex-wrap: wrap-reverse;

@@ -4,6 +4,7 @@ import { ICardData } from '@pattern/card/card.type';
 import { ReviewStore } from '@shared/store/review.store';
 import { IReviewOfStudentResponse } from '@shared/mock/httpResponse.interface';
 import { ELoadingStatus } from '@shared/constant/global.const';
+import { MediaBreakpointStore } from '@shared/store/media-breakpoint.service';
 
 @Component({
   selector: 'app-review',

@@ -8,10 +8,27 @@
 }
 
 @mixin mq($device,$condition:max-width,$widthValue:0){
-  $value:map.get($media,$device);
+  $value:map.get($media-breakpoints,$device);
   @if $value{
-    @media screen and (#{$condition}: $value) {
-      @content;
+
+    //desktop
+    @if $device == desktop{
+      @media screen and (min-width: map.get($media-breakpoints, desktop)){
+        @content;
+      }
+    }
+    //tablet
+    @else if $device == tablet {
+      @media screen and (min-width: (map.get($media-breakpoints, mobile) + 0.0625em))
+      and (max-width:map.get($media-breakpoints, tablet)) {
+        @content;
+      }
+    }
+    //mobile
+    @else{
+      @media screen  and (max-width:map.get($media-breakpoints,mobile)){
+        @content;
+      }
     }
   }
   @else{

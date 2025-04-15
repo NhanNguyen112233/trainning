@@ -1,38 +1,44 @@
 <div class="page-container">
-    <!-- <app-header></app-header> -->
-    <div style="padding:115px;">
-        <app-review></app-review>
+    <div class="introduce">
+        <app-header data-testId="appHeader"></app-header>
 
+        <div class="page-container-padding pt-80 ">
+            <app-general-introduction
+            data-testId="appIntroduction"
+            ></app-general-introduction>
+        </div>
     </div>
-    
+
+    <div class="page-container-padding">
+        <div appLazyLoadDirective 
+            data-testId="appReviewWithDirective"
+            (elementVisible)="observeSection($event,'appReview')">
+            <app-review
+            data-testId="appReview"
+            ></app-review>
+        </div>
+
+        <div appLazyLoadDirective 
+            (elementVisible)="observeSection($event,'appCourse')">
+            <app-course
+            data-testId="appCourse"
+            ></app-course>
+        </div>
+
+        <div appLazyLoadDirective 
+            (elementVisible)="observeSection($event,'appContact')">
+            <app-contact
+            data-testId="appContact"
+            ></app-contact>
+        </div>
+
+        <div appLazyLoadDirective 
+            (elementVisible)="observeSection($event,'appFooter')">
+            <app-footer
+            data-testId="appFooter"
+            ></app-footer>
+        </div>
+        
+    </div>
+
 </div>
-
-
-<!-- <app-general-introduction></app-general-introduction>
-<app-review></app-review>
-<app-course></app-course>
-<app-contact></app-contact>
-<app-footer></app-footer> -->
-
-<!-- <app-icon
-key="logo" fontSize="40px"
-></app-icon> -->
-
-<!-- <app-button
-type="primary"
-[isDisabled]="false"
->
-<span style="display:flex; justify-self: center; align-items: center;">
-    <app-icon
-    key="edit" width="16px" height="16px"
-    ></app-icon>
-    &nbsp;
-    <span>Enrol Now</span>
-</span>
-
-</app-button> -->
-
-
-<!-- <app-avatar></app-avatar> -->
-
-<!-- <app-card></app-card> -->

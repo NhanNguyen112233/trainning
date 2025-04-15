@@ -1,21 +1,40 @@
 {
-    "workbench.colorTheme": "One Dark Pro",
-    "editor.fontSize": 14,
-    "editor.lineHeight": 1.5,
-    "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "editor.tokenColorCustomizations": {
-        "[One Dark Pro]": {
-            "textMateRules": [
-                {
-                    "scope": ["source.ts", "source.tsx", "source.html", "source.css", "source.json", "source.markdown"],
-                    "settings": {
-                        "fontStyle": "italic"
-                    }
-                }
-            ]
+  "workbench.colorTheme": "One Dark Pro",
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "on",
+    "strings": "on"
+  },
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.5,
+  "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.tokenColorCustomizations": {
+    "[One Dark Pro]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "source.ts",
+            "source.tsx",
+            "source.html",
+            "source.css",
+            "source.json",
+            "source.markdown"
+          ],
+          "settings": {
+            "fontStyle": "italic"
+          }
         }
-    },
-    "github.copilot.enable": false,
-    "github.copilot.editor.enableAutoCompletions": false
+      ]
+    }
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "typescript": true
+  },
+  "github.copilot.editor.enableAutoCompletions": false,
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

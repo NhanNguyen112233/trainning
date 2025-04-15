@@ -1,0 +1,25 @@
+@use "../../../base/style/utils.scss" as * ;
+.general-introduction{
+    @include mq(tablet){
+        flex-wrap: wrap;
+    }
+
+    @include mq(mobile){
+        flex-wrap: wrap;
+    }
+
+    &-left{
+        &__title{
+            font-size: toRem(50px);
+            line-height: 125%;
+            color: var(--white);
+        }
+
+        &__description {
+            font-style: normal;
+            font-weight: 400;
+            line-height: 200%;
+            color: var(--white);
+        }
+    }
+}
